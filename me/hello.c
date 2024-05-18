@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <cs50.h>
+#include <string.h>
 int main(){
     printf("What is your name ?  ");
-    char name;
-    get_string
+    char name[100];
+    gets(name);
     printf("Hello, %s, \n",name );
     return 0;
 }
