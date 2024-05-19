@@ -7,7 +7,8 @@ int main()
     long rsn = n;;
     int gsn;
     int msn;
-    for(int i=0;i<7;i++)
+    if ( rsn/1e14 > 0){
+    for(int i=0;i<9;i++)
     {
         rsn= rsn/10;
         gsn=rsn%10;
@@ -23,9 +24,10 @@ int main()
         }
         rsn= rsn/10;
     }
-    if (rsn/1000>0)
+    }
+    else if (rsn/1000>0)
     {
-        
+
     }
 
 }
