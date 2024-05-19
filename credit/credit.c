@@ -14,6 +14,7 @@ int main()
     for(int i=0;i<9;i++)
     {
         gfn = rsn%10;
+        sum2 = sum2 + gfn;
         rsn= rsn/10;
         gsn=rsn%10;
         if((gsn*2)>=10)
@@ -28,7 +29,7 @@ int main()
         }
         rsn= rsn/10;
     }
-     if ( sum%10 ==0)
+     if ( (sum + sum2 )%10 ==0)
      {
         printf("VISA");
      }
@@ -39,6 +40,8 @@ int main()
     {
     for(int i=0;i<7;i++)
     {
+        gfn = rsn%10;
+        sum2 = sum2 + gfn;
         rsn= rsn/10;
         gsn=rsn%10;
         if((gsn*2)>=10)
@@ -53,7 +56,7 @@ int main()
         }
         rsn= rsn/10;
     }
-     if ( sum%10 == 0)
+     if ( (sum + sum2 )%10 == 0)
      {
         printf("VISA");
      }
