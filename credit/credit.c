@@ -9,7 +9,13 @@ int main()
     int gfn;
     int gsn;
     int msn;
-    if ( rsn/1e14 > 0)
+
+    if(rsn/1e15 > 0)
+    {
+        printf("INVALID");
+    }
+
+    else if ( rsn/1e14 > 0)
     {
     for(int i=0;i<9;i++)
     {
