@@ -23,5 +23,6 @@ int main()
         }
         rsn= rsn/10;
     }
+    if (rsn>0)
 
 }
