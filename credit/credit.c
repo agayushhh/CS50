@@ -6,11 +6,21 @@ int main()
     int sum=0;
     int rsn;
     int gsn;
+    int msn;
     for(int i=0;i<7;i++)
     {
         rsn=n/10;
         gsn=rsn%10;
-        if(gsn)
+        if((gsn*2)>=10)
+        {
+            msn=(2*gsn)%10;
+            sum = sum + 1 + msn;
+        }
+        else
+        {
+            msn = gsn*2;
+            sum = sum + msn;
+        }
     }
 
 }
