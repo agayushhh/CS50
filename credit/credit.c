@@ -12,7 +12,7 @@ int main()
 
     if(rsn/1e15 > 0)
     {
-        printf("INVALID");
+        printf("INVALID\n");
     }
 
     else if ( rsn/1e14 > 0)
@@ -37,7 +37,7 @@ int main()
     }
      if ( (sum + sum2 )%10 ==0)
      {
-        printf("VISA");
+        printf("VISA\n");
      }
 
     }
@@ -64,14 +64,14 @@ int main()
     }
      if ( (sum + sum2 )%10 == 0)
      {
-        printf("VISA");
+        printf("VISA\n");
      }
 
     }
 
     else
     {
-        printf("INVALID");
+        printf("INVALID\n");
     }
 
 return 0;
