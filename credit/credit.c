@@ -3,70 +3,78 @@
 int main()
 {
     long n = get_long("Number: ");
-    int sum=0;
-    int sum2=0;
+    int sum = 0;
+    int sum2 = 0;
     long rsn = n;
     int gfn;
     int gsn;
     int msn;
 
-    if(rsn/1e15 > 0)
+    if (rsn / 1e16 > 0)
     {
         printf("INVALID\n");
     }
 
-    else if ( rsn/1e14 > 0)
+    else if (rsn / 1e15 > 0)
     {
-    for(int i=0;i<9;i++)
-    {
-        gfn = rsn%10;
-        sum2 = sum2 + gfn;
-        rsn= rsn/10;
-        gsn=rsn%10;
-        if((gsn*2)>=10)
+        for (int i = 0; i < 9; i++)
         {
-            msn=(2*gsn)%10;
-            sum = sum + 1 + msn;
+            gfn = rsn % 10;
+            sum2 = sum2 + gfn;
+            rsn = rsn / 10;
+            gsn = rsn % 10;
+            if ((gsn * 2) >= 10)
+            {
+                msn = (2 * gsn) % 10;
+                sum = sum + 1 + msn;
+            }
+            else
+            {
+                msn = gsn * 2;
+                sum = sum + msn;
+            }
+            rsn = rsn / 10;
+        }
+        if ((sum + sum2) % 10 == 0)
+        {
+            printf("VISA\n");
         }
         else
         {
-            msn = gsn*2;
-            sum = sum + msn;
+
+        printf("INVALID");
+
         }
-        rsn= rsn/10;
-    }
-     if ( (sum + sum2 )%10 ==0)
-     {
-        printf("VISA\n");
-     }
-
     }
 
-    else if (rsn/1e12 > 0)
+    else if (rsn / 1e12 > 0)
     {
-    for(int i=0;i<7;i++)
-    {
-        gfn = rsn%10;
-        sum2 = sum2 + gfn;
-        rsn= rsn/10;
-        gsn=rsn%10;
-        if((gsn*2)>=10)
+        for (int i = 0; i < 7; i++)
         {
-            msn=(2*gsn)%10;
-            sum = sum + 1 + msn;
+            gfn = rsn % 10;
+            sum2 = sum2 + gfn;
+            rsn = rsn / 10;
+            gsn = rsn % 10;
+            if ((gsn * 2) >= 10)
+            {
+                msn = (2 * gsn) % 10;
+                sum = sum + 1 + msn;
+            }
+            else
+            {
+                msn = gsn * 2;
+                sum = sum + msn;
+            }
+            rsn = rsn / 10;
+        }
+        if ((sum + sum2) % 10 == 0)
+        {
+            printf("VISA\n");
         }
         else
         {
-            msn = gsn*2;
-            sum = sum + msn;
+        printf("INVALID");
         }
-        rsn= rsn/10;
-    }
-     if ( (sum + sum2 )%10 == 0)
-     {
-        printf("VISA\n");
-     }
-
     }
 
     else
@@ -74,6 +82,5 @@ int main()
         printf("INVALID\n");
     }
 
-return 0;
-
+    return 0;
 }
