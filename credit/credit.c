@@ -23,6 +23,9 @@ int main()
         }
         rsn= rsn/10;
     }
-    if (rsn>0)
+    if (rsn/1000>0)
+    {
+        
+    }
 
 }
