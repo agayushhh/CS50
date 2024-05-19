@@ -9,13 +9,16 @@ int main()
     int gfn;
     int gsn;
     int msn;
+    int a = rsn/1e16;
+    int b = rsn/1e15;
+    int c = rsn/1e12;
 
-    if (((int)rsn / 1e16) > 0)
+    if (a > 0)
     {
         printf("INVALID\n");
     }
 
-    else if (((int)rsn / 1e15) > 0)
+    else if (b > 0)
     {
         for (int i = 0; i < 9; i++)
         {
@@ -47,7 +50,7 @@ int main()
         }
     }
 
-    else if (((int)rsn / 1e12) > 0)
+    else if (c > 0)
     {
         for (int i = 0; i < 7; i++)
         {
