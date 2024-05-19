@@ -10,12 +10,12 @@ int main()
     int gsn;
     int msn;
 
-    if (rsn / 1e16 > 0)
+    if (((int)rsn / 1e16) > 0)
     {
         printf("INVALID\n");
     }
 
-    else if (rsn / 1e15 > 0)
+    else if (((int)rsn / 1e15) > 0)
     {
         for (int i = 0; i < 9; i++)
         {
@@ -47,7 +47,7 @@ int main()
         }
     }
 
-    else if (rsn / 1e12 > 0)
+    else if (((int)rsn / 1e12) > 0)
     {
         for (int i = 0; i < 7; i++)
         {
