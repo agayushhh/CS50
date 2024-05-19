@@ -46,7 +46,7 @@ int main()
         else
         {
 
-        printf("INVALID");
+        printf("INVALID\n");
 
         }
     }
@@ -77,7 +77,7 @@ int main()
         }
         else
         {
-        printf("INVALID");
+        printf("INVALID\n");
         }
     }
 
