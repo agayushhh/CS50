@@ -4,12 +4,12 @@ int main()
 {
     long n = get_long("Number: ");
     int sum=0;
-    int rsn;
+    long rsn = n;;
     int gsn;
     int msn;
     for(int i=0;i<7;i++)
     {
-        rsn=n/10;
+        rsn= rsn/10;
         gsn=rsn%10;
         if((gsn*2)>=10)
         {
@@ -21,6 +21,7 @@ int main()
             msn = gsn*2;
             sum = sum + msn;
         }
+        rsn= rsn/10;
     }
 
 }
