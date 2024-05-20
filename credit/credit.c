@@ -106,7 +106,9 @@ int main()
     int msn;
     int a = rsn/1e16; //to check 17 digit number
     int b = rsn/1e15; //to check 16 digit number
+    int b1= rsn%1e15;
     int c = rsn/1e14; //to check 15 digit number
+    int c1 = rsn%1e14;
     int d = rsn/1e13; //to check 14 digit number
     int e = rsn/1e12; //to check 13 digit number
 
@@ -117,7 +119,7 @@ int main()
 
     else if (b > 0)
     {
-        if ( (b + rsn%1e15)==51 ||(b + rsn%1e15)==52 ||(b + rsn%1e15)==53 ||(b + rsn%1e15)==54 ||(b + rsn%1e15)==55)
+        if ( (b + b1)==51 ||(b + b1)==52 ||(b + b1)==53 ||(b + b1)==54 ||(b + b1)==55)
         {
             Mastercard(sum,sum2,gfn,gsn,rsn,msn,9);
         }
@@ -135,7 +137,7 @@ int main()
 
     else if(c>0)
     {
-        if( (c+rsn%1e14)==34 || (c+rsn%1e14)==37)
+        if( (c+c1)==34 || (c+c1)==37)
         {
             AMEX(sum,sum2,gfn,gsn,rsn,msn,8);
         }
