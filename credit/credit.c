@@ -101,14 +101,14 @@ int main()
     int sum = 0;
     int sum2 = 0;
     long rsn = n;
-    int gfn;
+    int gfn=0;
     int gsn;
     int msn;
     int a = rsn/1e16; //to check 17 digit number
     int b = rsn/1e15; //to check 16 digit number
-    int b1= rsn%1e15;
+    int b1= rsn%1000000000000000;
     int c = rsn/1e14; //to check 15 digit number
-    int c1 = rsn%1e14;
+    int c1 = rsn%100000000000000;
     int d = rsn/1e13; //to check 14 digit number
     int e = rsn/1e12; //to check 13 digit number
 
