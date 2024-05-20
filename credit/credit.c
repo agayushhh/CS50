@@ -1,7 +1,10 @@
 #include <cs50.h>
 #include <stdio.h>
-void AMEX(sum,sum2,gfn,gsn,rsn,msn,m)
+void AMEX(sum,sum2,rsn,m)
 {
+     int gfn;
+    int gsn;
+    int msn;
     for (int i = 0; i < m; i++)
         {
             gfn = rsn % 10;
@@ -31,8 +34,11 @@ void AMEX(sum,sum2,gfn,gsn,rsn,msn,m)
 
         }
 }
-void VISA(sum,sum2,gfn,gsn,rsn,msn,m)
+void VISA(sum,sum2,rsn,m)
 {
+    int gfn;
+    int gsn;
+    int msn;
       for (int i = 0; i < m; i++)
         {
             gfn = rsn % 10;
@@ -62,10 +68,11 @@ void VISA(sum,sum2,gfn,gsn,rsn,msn,m)
 
         }
 }
-void Mastercard(sum,sum2,gfn,gsn,rsn,msn,m)
-
-
-{
+void Mastercard(sum,sum2,rsn,m)
+   {
+    int gfn;
+    int gsn;
+    int msn;
      for (int i = 0; i < m; i++)
         {
             gfn = rsn % 10;
@@ -97,6 +104,7 @@ void Mastercard(sum,sum2,gfn,gsn,rsn,msn,m)
 }
 int main()
 {
+
     long n = get_long("Number: ");
     int sum = 0;
     int sum2 = 0;
@@ -121,12 +129,12 @@ int main()
     {
         if ( (b + b1)==51 ||(b + b1)==52 ||(b + b1)==53 ||(b + b1)==54 ||(b + b1)==55)
         {
-            Mastercard(sum,sum2,gfn,gsn,rsn,msn,9);
+            Mastercard(sum,sum2,rsn,9);
         }
 
         else if(b==4)
         {
-           VISA(sum,sum2,gfn,gsn,rsn,msn,9);
+           VISA(sum,sum2,rsn,9);
         }
 
         else
@@ -139,7 +147,7 @@ int main()
     {
         if( (c+c1)==34 || (c+c1)==37)
         {
-            AMEX(sum,sum2,gfn,gsn,rsn,msn,8);
+            AMEX(sum,sum2,rsn,8);
         }
          else
          {
@@ -157,7 +165,7 @@ int main()
     {
         if(e==4)
         {
-            VISA(sum,sum2,gfn,gsn,rsn,msn,7);
+            VISA(sum,sum2,rsn,7);
         }
         else
         {
