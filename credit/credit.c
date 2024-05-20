@@ -114,7 +114,8 @@ int main()
     int b2= rsn/100000000000000;
     int b1= b2%10;
     int c = rsn/1e14; //to check 15 digit number
-    int c1 = rsn%100000000000000;
+    int c2 = rsn/10000000000000;
+    int c1 = c2%10;
     int d = rsn/1e13; //to check 14 digit number
     int e = rsn/1e12; //to check 13 digit number
 
