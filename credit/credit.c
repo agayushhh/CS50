@@ -111,7 +111,8 @@ int main()
     long rsn = n;
     int a = rsn/1e16; //to check 17 digit number
     int b = rsn/1e15; //to check 16 digit number
-    int b1= rsn%1000000000000000;
+    int b2= rsn/100000000000000;
+    int b1= b2%10;
     int c = rsn/1e14; //to check 15 digit number
     int c1 = rsn%100000000000000;
     int d = rsn/1e13; //to check 14 digit number
