@@ -109,9 +109,6 @@ int main()
     int sum = 0;
     int sum2 = 0;
     long rsn = n;
-    int gfn=0;
-    int gsn;
-    int msn;
     int a = rsn/1e16; //to check 17 digit number
     int b = rsn/1e15; //to check 16 digit number
     int b1= rsn%1000000000000000;
