@@ -1,6 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
-void AMEX(sum,sum2,rsn,m)
+void AMEX(int sum,int sum2,long rsn,int m)
 {
      int gfn;
     int gsn;
@@ -34,7 +34,7 @@ void AMEX(sum,sum2,rsn,m)
 
         }
 }
-void VISA(sum,sum2,rsn,m)
+void VISA(int sum,int sum2,long rsn,int m)
 {
     int gfn;
     int gsn;
@@ -68,7 +68,7 @@ void VISA(sum,sum2,rsn,m)
 
         }
 }
-void Mastercard(sum,sum2,rsn,m)
+void Mastercard(int sum,int sum2,long rsn,int m)
    {
     int gfn;
     int gsn;
