@@ -1,6 +1,100 @@
 #include <cs50.h>
 #include <stdio.h>
+void AMEX(sum,sum2,gfn,gsn,rsn,msn,m)
+{
+    for (int i = 0; i < m; i++)
+        {
+            gfn = rsn % 10;
+            sum2 = sum2 + gfn;
+            rsn = rsn / 10;
+            gsn = rsn % 10;
+            if ((gsn * 2) >= 10)
+            {
+                msn = (2 * gsn) % 10;
+                sum = sum + 1 + msn;
+            }
+            else
+            {
+                msn = gsn * 2;
+                sum = sum + msn;
+            }
+            rsn = rsn / 10;
+        }
+        if ((sum + sum2) % 10 == 0)
+        {
+            printf("AMEX\n");
+        }
+        else
+        {
 
+        printf("INVALID\n");
+
+        }
+}
+void VISA(sum,sum2,gfn,gsn,rsn,msn,m)
+{
+      for (int i = 0; i < m; i++)
+        {
+            gfn = rsn % 10;
+            sum2 = sum2 + gfn;
+            rsn = rsn / 10;
+            gsn = rsn % 10;
+            if ((gsn * 2) >= 10)
+            {
+                msn = (2 * gsn) % 10;
+                sum = sum + 1 + msn;
+            }
+            else
+            {
+                msn = gsn * 2;
+                sum = sum + msn;
+            }
+            rsn = rsn / 10;
+        }
+        if ((sum + sum2) % 10 == 0)
+        {
+            printf("VISA\n");
+        }
+        else
+        {
+
+        printf("INVALID\n");
+
+        }
+}
+void Mastercard(sum,sum2,gfn,gsn,rsn,msn,m)
+
+
+{
+     for (int i = 0; i < m; i++)
+        {
+            gfn = rsn % 10;
+            sum2 = sum2 + gfn;
+            rsn = rsn / 10;
+            gsn = rsn % 10;
+            if ((gsn * 2) >= 10)
+            {
+                msn = (2 * gsn) % 10;
+                sum = sum + 1 + msn;
+            }
+            else
+            {
+                msn = gsn * 2;
+                sum = sum + msn;
+            }
+            rsn = rsn / 10;
+        }
+        if ((sum + sum2) % 10 == 0)
+        {
+            printf("MASTERCARD\n");
+        }
+        else
+        {
+
+        printf("INVALID\n");
+
+        }
+}
 int main()
 {
     long n = get_long("Number: ");
@@ -10,74 +104,62 @@ int main()
     int gfn;
     int gsn;
     int msn;
-    int a = rsn/1e16;
-    int b = rsn/1e15;
-    int c = rsn/1e12;
+    int a = rsn/1e16; //to check 17 digit number
+    int b = rsn/1e15; //to check 16 digit number
+    int c = rsn/1e14; //to check 15 digit number
+    int d = rsn/1e13; //to check 14 digit number
+    int e = rsn/1e12; //to check 13 digit number
 
-    if (a > 0)
+   if (a > 0)
     {
         printf("INVALID\n");
     }
 
     else if (b > 0)
     {
-        for (int i = 0; i < 9; i++)
+        if ( (b + rsn%1e15)==51 ||(b + rsn%1e15)==52 ||(b + rsn%1e15)==53 ||(b + rsn%1e15)==54 ||(b + rsn%1e15)==55)
         {
-            gfn = rsn % 10;
-            sum2 = sum2 + gfn;
-            rsn = rsn / 10;
-            gsn = rsn % 10;
-            if ((gsn * 2) >= 10)
-            {
-                msn = (2 * gsn) % 10;
-                sum = sum + 1 + msn;
-            }
-            else
-            {
-                msn = gsn * 2;
-                sum = sum + msn;
-            }
-            rsn = rsn / 10;
+            Mastercard(sum,sum2,gfn,gsn,rsn,msn,9);
         }
-        if ((sum + sum2) % 10 == 0)
+
+        else if(b==4)
         {
-            printf("VISA\n");
+           VISA(sum,sum2,gfn,gsn,rsn,msn,9);
         }
+
         else
         {
-
-        printf("INVALID\n");
-
+            printf("INVALID\n");
         }
     }
 
-    else if (c > 0)
+    else if(c>0)
     {
-        for (int i = 0; i < 7; i++)
+        if( (c+rsn%1e14)==34 || (c+rsn%1e14)==37)
         {
-            gfn = rsn % 10;
-            sum2 = sum2 + gfn;
-            rsn = rsn / 10;
-            gsn = rsn % 10;
-            if ((gsn * 2) >= 10)
-            {
-                msn = (2 * gsn) % 10;
-                sum = sum + 1 + msn;
-            }
-            else
-            {
-                msn = gsn * 2;
-                sum = sum + msn;
-            }
-            rsn = rsn / 10;
+            AMEX(sum,sum2,gfn,gsn,rsn,msn,8);
         }
-        if ((sum + sum2) % 10 == 0)
+         else
+         {
+            printf("INVALID\n");
+         }
+
+    }
+
+    else if(d>0)
+    {
+        printf("INVALID\n");
+    }
+
+    else if(e>0)
+    {
+        if(e==4)
         {
-            printf("VISA\n");
+            VISA(sum,sum2,gfn,gsn,rsn,msn,7);
         }
         else
         {
-        printf("INVALID\n");
+            printf("INVALID\n");
         }
     }
 
@@ -85,6 +167,5 @@ int main()
     {
         printf("INVALID\n");
     }
-
     return 0;
 }
