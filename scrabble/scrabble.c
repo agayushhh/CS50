@@ -26,6 +26,12 @@ int main()
 int score(string s)
 {
     int i=0;
+    int sum=0;
+    s=to
     while(s[i]!=\0)
-    
+    {
+        if(s[i])
+        sum = sum + (s[i]-"A")
+    }
+
 }
