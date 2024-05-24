@@ -76,6 +76,10 @@ int repeat(string pass, int f)
         {
             return repeat1;
         }
+        else
+        {
+            repeat1=0;
+        }
     }
     return repeat1;
 }
