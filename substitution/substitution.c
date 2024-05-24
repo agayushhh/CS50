@@ -11,7 +11,12 @@ int main(int argc, string argv[])
     int f = strlen(argv[1]);
     int repeat2 = repeat(pas,f);
 
-    if(argc == 1 || argc > 2 || repeat2 >=2 )
+    if(argc == 1 || repeat2 >=2 )
+    {
+        printf("Usage: ./substitution Key\n");
+        return 1;
+    }
+    else if(argc > 2 )
     {
         printf("Usage: ./substitution Key\n");
         return 1;
