@@ -10,7 +10,7 @@ int main(int argc, string argv[])
     string pas = argv[1];
     int f = strlen(argv[1]);
     int repeat2 = repeat(pas,f);
-    for(int k=0 ; k<f;k++)
+    for(int k=0 ; k<f; k++)
     {
         if(isalpha(argv[1][k])== 0)
         {
