@@ -30,7 +30,7 @@ int main(int argc, string argv[])
     {
         string s = get_string("Plaintext: ");
         char a;
-        int l=strlen(argv[1]);
+        int l=strlen(s);
         printf("ciphertext: ");
         for(int i=0; i < l; i++)
         {
