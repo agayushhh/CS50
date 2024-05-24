@@ -9,7 +9,7 @@ int main(int argc, string argv[])
 {
 
     int f = 26;
-    string pas = ;
+    string pas = "ZYXWVUTSRQPONMLKJIHGFEDCBA" ;
     int repeat2 = repeat(pas,f);
 
     if(argc == 1 || argc > 2 || repeat2 > 1)
