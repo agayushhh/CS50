@@ -8,6 +8,7 @@ int main()
     int punc=0;
     int gap=0;
     int sent=0;
+    int words=1;
     for(int i=0; i<strlen(s);i++)
     {
         if(s[i]==".")
@@ -22,10 +23,11 @@ int main()
         else if(s[i]==" ")
         {
             gap++;
+            words++;
         }
     }
-    float L= (strlen(s)-gap-punc)/100;
-    float S= sent/100;
+    float L= ((strlen(s)-gap-punc)/words)*100;
+    float S= (sent/words)*100;
     int index = 0.0588 * L - 0.296 * S - 15.8;
 
 }
