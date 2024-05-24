@@ -5,15 +5,13 @@
 
 int repeat(string pass, int f);
 
-int main()
+int main(int argc, string argv[])
 {
-    int argc = 2;
-    int f = 26;
-    string pas = "ZYXWVUTSRQPONMLKJIHGFEDCBA" ;
-    string argv[1][26]= "ZYXWVUTSRQPONMLKJIHGFEDCBA"
+    string pas = argv[1];
+    int f = strlen(argv[1]);
     int repeat2 = repeat(pas,f);
 
-    if(argc == 1 || argc > 2 || repeat2 > 1)
+    if(argc == 1 || argc > 2 || repeat2 >=2 )
     {
         printf("Usage: ./substitution Key\n");
         return 1;
@@ -26,7 +24,7 @@ int main()
     }
     else if ((argc == 2) && strlen(argv[1]) == 26 )
     {
-        string s = "A";
+        string s = get_string("Plaintext: ");
         char a;
         int l=strlen(s);
         printf("ciphertext: ");
