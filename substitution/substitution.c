@@ -3,12 +3,13 @@
 #include <stdio.h>
 #include <string.h>
 
-int repeat(string pass[], int f);
+int repeat(string pass, int f);
 
 int main(int argc, string argv[])
 {
-    string pas = argv[1];
+
     int f = strlen(argv[1]);
+    string pas = argv[1];
     int repeat2 = repeat(pas,f);
 
     if(argc == 1 || argc > 2 || repeat2 > 1)
@@ -59,9 +60,9 @@ int main(int argc, string argv[])
     return 0;
 }
 
-int repeat(string pass[], int f)
+int repeat(string pass, int f)
 {
-    int repeat1;
+    int repeat1 = 0;
      for(int i=0;i<f;i++)
     {
         for(int j=0;j<f;j++)
