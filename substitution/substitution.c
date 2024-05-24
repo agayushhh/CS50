@@ -10,12 +10,12 @@ int main(int argc, string argv[])
     int l = strlen(argv[1]);
     for(int i=0;i<l-1;i++)
     {
-        if(toupper(s[i]) == toupper(s[i+1]))
+        if(toupper(argv[1][i]) == toupper(argv[1][i+1]))
         {
            repeat++;
         }
     }
-    if(argc == 1 || argc>2 || repeat>0)
+    if(argc == 1 || argc > 2 || repeat > 0)
     {
         printf("Usage: ./substitution Key\n");
         return 1;
