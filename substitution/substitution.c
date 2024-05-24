@@ -72,6 +72,10 @@ int repeat(string pass, int f)
         }
 
         }
+        if(repeat1>1)
+        {
+            return repeat1;
+        }
     }
     return repeat1;
 }
