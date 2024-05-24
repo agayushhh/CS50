@@ -29,11 +29,7 @@ int main(int argc, string argv[])
         printf("Usage: ./substitution Key\n");
         return 1;
     }
-    else if(argc > 2 )
-    {
-        printf("Usage: ./substitution Key\n");
-        return 1;
-    }
+  
 
     else if(strlen(argv[1]) !=26)
     {
