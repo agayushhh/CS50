@@ -64,6 +64,7 @@ int repeat(string pass, int f)
     int repeat1 = 0;
      for(int i=0;i<f;i++)
     {
+        repeat1 = 0;
         for(int j=0;j<f;j++)
         {
         if(toupper(pass[i]) == toupper(pass[j]))
