@@ -12,7 +12,7 @@ int main()
     int words = 1;
     for (int i = 0; i < strlen(s); i++)
     {
-        if (s[i] == '.'|| s[i] == '?' )
+        if (s[i] == '.'|| s[i] == '?' || s[i] == '!' )
         {
             sent++;
             punc++;
