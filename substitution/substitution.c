@@ -3,24 +3,15 @@
 #include <stdio.h>
 #include <string.h>
 
+int repeat(string pass[], int f);
 
 int main(int argc, string argv[])
 {
-    int repeat=0;
+    string pas = argv[1];
     int f = strlen(argv[1]);
-    for(int i=0;i<f;i++)
-    {
-        for(int j=0;j<f;j++)
-        {
-        if(toupper(argv[1][i]) == toupper(argv[1][j]))
-        {
-           repeat++;
-        }
+    int repeat2 = repeat(pas,f);
 
-        }
-    }
-
-    if(argc == 1 || argc > 2 || repeat > 1)
+    if(argc == 1 || argc > 2 || repeat2 > 1)
     {
         printf("Usage: ./substitution Key\n");
         return 1;
@@ -66,6 +57,23 @@ int main(int argc, string argv[])
      printf("\n");
     }
     return 0;
+}
+
+int repeat(string pass[], int f)
+{
+    int repeat1;
+     for(int i=0;i<f;i++)
+    {
+        for(int j=0;j<f;j++)
+        {
+        if(toupper(pass[i]) == toupper(pass[j]))
+        {
+           repeat1++;
+        }
+
+        }
+    }
+    return repeat1;
 }
 
 
