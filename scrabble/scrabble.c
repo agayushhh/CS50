@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <string.h>
 
 int value[26] = {1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10};
 
@@ -27,14 +28,13 @@ int main()
 
 int score(string s)
 {
-    int i=0;
+    
     int sum=0;
-
-    while(s[i] !="\0")
+    for(int i=0; i<strlen(s); i++)
     {
     s[i]= toupper(s[i]);
     sum = sum + value[s[i]-"A"-1];
-    i++;
+
     }
     return sum;
 
