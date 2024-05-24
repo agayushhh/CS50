@@ -10,7 +10,8 @@ int main()
     int gap = 0;
     int sent = 0;
     int words = 1;
-    for (int i = 0; i < strlen(s); i++)
+    int length = strlen(s);
+    for (int i = 0; i < length; i++)
     {
         if (s[i] == '.'|| s[i] == '?' || s[i] == '!' )
         {
@@ -27,7 +28,7 @@ int main()
             words++;
         }
     }
-    float L = ((strlen(s) - gap - punc) / words) * 100;
+    float L = ((length - gap - punc) / words) * 100;
     float S = (sent / words) * 100;
     float index1 = 0.0588 * L - 0.296 * S - 15.8;
     int index= round(index1);
