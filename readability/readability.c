@@ -24,8 +24,8 @@ int main()
             gap++;
         }
     }
-    int L= (strlen(s)-gap-punc)/100;
-    int s= sent/100;
+    float L= (strlen(s)-gap-punc)/100;
+    float S= sent/100;
     int index = 0.0588 * L - 0.296 * S - 15.8;
-    
+
 }
