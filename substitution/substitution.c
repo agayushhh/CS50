@@ -26,13 +26,13 @@ int main(int argc, string argv[])
         printf("Usage: Key should be of 26 Character\n");
         return 1;
     }
-    else if ((argc == 2) && strlen(argv[1]) ==26 )
+    else if ((argc == 2) && strlen(argv[1]) == 26 )
     {
         string s = get_string("Plaintext: ");
         char a;
         int l=strlen(argv[1]);
         printf("ciphertext: ");
-        for(int i=0;i<l;i++)
+        for(int i=0; i < l;i++)
         {
         if(isupper(s[i]))
         {
