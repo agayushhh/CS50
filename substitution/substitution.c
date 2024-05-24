@@ -52,10 +52,7 @@ int main(int argc, string argv[])
         {
             printf("%c",s[i]);
         }
-        else if(ispunct(s[i]))
-        {
-            printf("%c",s[i]);
-        }
+     
 
         }
      printf("\n");
