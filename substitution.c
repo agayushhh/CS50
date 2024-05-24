@@ -5,6 +5,7 @@ int main(int argc, string argv[])
 {
     if(strlen(argv) !=26)
     {
-        printf("Usage: Key should be of 26 Character)
+        printf("Usage: Key should be of 26 Character);
+        return 1;
     }
 }
