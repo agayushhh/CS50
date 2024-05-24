@@ -10,9 +10,12 @@ int main(int argc, string argv[])
     int f = strlen(argv[1]);
     for(int i=0;i<f-1;i++)
     {
-        if(toupper(argv[1][i]) == toupper(argv[1][i+1]))
+        for(int j=0;j<f;j++)
+        {
+        if(toupper(argv[1][i]) == toupper(argv[1][j+1]))
         {
            repeat++;
+        }
         }
     }
     if(argc == 1 || argc > 2 || repeat > 0)
