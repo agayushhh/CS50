@@ -8,8 +8,8 @@ int repeat(string pass, int f);
 int main(int argc, string argv[])
 {
 
-    int f = strlen(argv[1]);
-    string pas = argv[1];
+    int f = 26;
+    string pas = ;
     int repeat2 = repeat(pas,f);
 
     if(argc == 1 || argc > 2 || repeat2 > 1)
