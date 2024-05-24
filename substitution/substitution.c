@@ -2,6 +2,8 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+
+void convert(string s[]);
 int main(int argc, string argv[])
 {
     if(argc == 1)
@@ -17,7 +19,20 @@ int main(int argc, string argv[])
     }
     else if ((argc == 2) && strlen(argv[1]) ==26 )
     {
-        
+        string s = get_string("Plaintext: ");
+        convert(s);
     }
+    return 0;
+}
 
+void convert(string s[])
+{
+    char a;
+    for(int i=0,l=strlen(argv[1]);i<l;i++)
+    {
+        if(isupper(s[i]))
+        {
+            
+        }
+    }
 }
