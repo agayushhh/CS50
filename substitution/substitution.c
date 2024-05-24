@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void convert(string s[]);
+
 int main(int argc, string argv[])
 {
     if(argc == 1)
@@ -20,17 +20,10 @@ int main(int argc, string argv[])
     else if ((argc == 2) && strlen(argv[1]) ==26 )
     {
         string s = get_string("Plaintext: ");
-        convert(s);
-    }
-    return 0;
-}
-
-void convert(string s[])
-{
-    char a;
-    int l=strlen(argv[1]);
-    for(int i=0,;i<(l);i++)
-    {
+        char a;
+        int l=strlen(argv[1]);
+        for(int i=0;i<(l);i++)
+        {
         if(isupper(s[i]))
         {
             a=toupper(argv[1][s[i]-'A']);
@@ -48,5 +41,8 @@ void convert(string s[])
 
     }
      printf("\n");
-
+    }
+    return 0;
 }
+
+
