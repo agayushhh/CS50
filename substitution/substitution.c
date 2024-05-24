@@ -7,8 +7,8 @@
 int main(int argc, string argv[])
 {
     int repeat=0;
-    int l = strlen(argv[1]);
-    for(int i=0;i<l-1;i++)
+    int f = strlen(argv[1]);
+    for(int i=0;i<f-1;i++)
     {
         if(toupper(argv[1][i]) == toupper(argv[1][i+1]))
         {
