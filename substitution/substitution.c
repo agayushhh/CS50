@@ -19,7 +19,12 @@ int main(int argc, string argv[])
         }
     }
 
-    if(argc == 1 || repeat2 >=2 )
+    if(argc == 1)
+    {
+        printf("Usage: ./substitution Key\n");
+        return 1;
+    }
+    else if( repeat2 >=2 )
     {
         printf("Usage: ./substitution Key\n");
         return 1;
