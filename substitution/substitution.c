@@ -28,11 +28,23 @@ int main(int argc, string argv[])
 void convert(string s[])
 {
     char a;
-    for(int i=0,l=strlen(argv[1]);i<l;i++)
+    int l=strlen(argv[1]);
+    for(int i=0,;i<(l-1);i++)
     {
         if(isupper(s[i]))
         {
-            
+            a=toupper(argv[1][s[i]-'A']);
+            printf("%c",a);
+        }
+        else if(islower(s[i]))
+        {
+            a=tolower(argv[1][s[i]-'a']);
+             printf("%c",a);
+        }
+        else if(isblank(s[i]))
+        {
+            printf(" ");
         }
     }
+    
 }
