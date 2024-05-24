@@ -33,7 +33,7 @@ int score(string s)
     for(int i=0; i<strlen(s); i++)
     {
     s[i]= toupper(s[i]);
-    sum = sum + value[s[i]-'A'-1];
+    sum = sum + value[s[i]-'A'];
 
     }
     return sum;
