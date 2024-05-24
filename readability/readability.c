@@ -1,4 +1,5 @@
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -28,7 +29,8 @@ int main()
     }
     float L = ((strlen(s) - gap - punc) / words) * 100;
     float S = (sent / words) * 100;
-    int index = 0.0588 * L - 0.296 * S - 15.8;
+    float index1 = 0.0588 * L - 0.296 * S - 15.8;
+    int index= round(index1);
     if (index > 16)
     {
         printf("Grade 16+\n");
