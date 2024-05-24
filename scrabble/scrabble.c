@@ -30,7 +30,7 @@ int score(string s)
     int i=0;
     int sum=0;
 
-    while(s[i]!=\0)
+    while(s[i] !="\0")
     {
     s[i]= toupper(s[i]);
     sum = sum + value[s[i]-"A"-1];
