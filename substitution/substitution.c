@@ -16,8 +16,10 @@ int main(int argc, string argv[])
         {
            repeat++;
         }
+        
         }
     }
+
     if(argc == 1 || argc > 2 || repeat > 0)
     {
         printf("Usage: ./substitution Key\n");
