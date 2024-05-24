@@ -39,6 +39,10 @@ int main(int argc, string argv[])
         {
             printf(" ");
         }
+        else if(isalnum(s[i]))
+        {
+            printf("%c",s[i]);
+        }
 
     }
      printf("\n");
