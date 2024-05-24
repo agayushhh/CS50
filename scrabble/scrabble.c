@@ -12,11 +12,13 @@ int main()
  {
     string player1 = get_string("Player 1: ");
     string player2 = get_string("Player 2: ");
-    if(score(player1)>score(player2))
+    int score1 = score(player1);
+    int score2 = score(player2);
+    if(score1>score2)
     {
         printf("Player 1 wins!\n");
     }
-    if(score(player1)<score(player2))
+    if(score1<score2)
     {
         printf("Player 2 wins!\n");
     }
