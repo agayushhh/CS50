@@ -8,9 +8,12 @@ int main(int argc, string argv[])
 {
     int repeat=0;
     int l = strlen(argv[1]);
-    for(int i=0;i<l;i++)
+    for(int i=0;i<l-1;i++)
     {
-        
+        if(s[i] == s[i+1])
+        {
+            
+        }
     }
     if(argc == 1 || argc>2)
     {
