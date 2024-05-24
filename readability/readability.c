@@ -28,8 +28,8 @@ int main()
             words++;
         }
     }
-    float L = ((length - gap - punc) / words) * 100;
-    float S = (sent / words) * 100;
+    float L = ((float)(length - gap - punc) / words) * 100;
+    float S = ((float)sent / words) * 100;
     float index1 = 0.0588 * L - 0.296 * S - 15.8;
     int index= round(index1);
     if (index > 16)
