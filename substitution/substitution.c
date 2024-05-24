@@ -5,9 +5,9 @@
 
 int repeat(string pass, int f);
 
-int main(int argc, string argv[])
+int main()
 {
-
+    int argc = 2;
     int f = 26;
     string pas = "ZYXWVUTSRQPONMLKJIHGFEDCBA" ;
     string argv[1][26]= "ZYXWVUTSRQPONMLKJIHGFEDCBA"
