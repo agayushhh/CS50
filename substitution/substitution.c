@@ -32,7 +32,7 @@ int main(int argc, string argv[])
         char a;
         int l=strlen(argv[1]);
         printf("ciphertext: ");
-        for(int i=0;i<(l);i++)
+        for(int i=0;i<l;i++)
         {
         if(isupper(s[i]))
         {
