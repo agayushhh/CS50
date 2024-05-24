@@ -12,7 +12,7 @@ int main(int argc, string argv[])
     int repeat2 = repeat(pas,f);
     for(int k=0 ; k<f;k++)
     {
-        if(isalpha(argv[1][k])==NULL)
+        if(isalpha(argv[1][k])== 0)
         {
         printf("INVALID Key\n");
         return 1;
