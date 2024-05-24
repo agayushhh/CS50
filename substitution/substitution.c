@@ -27,12 +27,12 @@ int main(int argc, string argv[])
         {
         if(isupper(s[i]))
         {
-            a=toupper(argv[1][s[i]-'A']);
+            a = toupper(argv[1][s[i]-'A']);
             printf("%c",a);
         }
         else if(islower(s[i]))
         {
-            a=tolower(argv[1][s[i]-'a']);
+            a = tolower(argv[1][s[i]-'a']);
              printf("%c",a);
         }
         else if(isblank(s[i]))
