@@ -29,7 +29,7 @@ void convert(string s[])
 {
     char a;
     int l=strlen(argv[1]);
-    for(int i=0,;i<(l-1);i++)
+    for(int i=0,;i<(l);i++)
     {
         if(isupper(s[i]))
         {
@@ -45,6 +45,8 @@ void convert(string s[])
         {
             printf(" ");
         }
+
     }
-    
+     printf("\n");
+
 }
