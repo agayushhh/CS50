@@ -52,7 +52,7 @@ int main(int argc, string argv[])
         {
             printf("%c",s[i]);
         }
-        else if(argv[1][s[i]] == '\'' || argv[1][s[i]] == '"'|| argv[1][s[i]] == '!' ||argv[1][s[i]] == ',')
+        else if(s[i] == '\'' || s[i] == '"'|| s[i] == '!' || s[i] == ',')
         {
             printf("%c",s[i]);
         }
