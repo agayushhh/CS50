@@ -39,7 +39,7 @@ int main()
     }
     else
     {
-        printf("Grade %i", index);
+        printf("Grade %i\n", index);
     }
 
     return 0;
