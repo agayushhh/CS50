@@ -6,6 +6,12 @@
 
 int main(int argc, string argv[])
 {
+    int repeat=0;
+    int l = strlen(argv[1]);
+    for(int i=0;i<l;i++)
+    {
+        
+    }
     if(argc == 1 || argc>2)
     {
         printf("Usage: ./substitution Key\n");
