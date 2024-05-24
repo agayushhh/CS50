@@ -3,9 +3,9 @@
 #include <string.h>
 int main(int argc, string argv[])
 {
-    if(strlen(argv) !=26)
+    if(strlen(argv[1]) !=26)
     {
-        printf("Usage: Key should be of 26 Character);
+        printf("Usage: Key should be of 26 Character");
         return 1;
     }
 }
