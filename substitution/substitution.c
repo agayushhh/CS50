@@ -7,10 +7,27 @@ int repeat(string pass, int f);
 
 int main(int argc, string argv[])
 {
+     if(argc == 1)
+    {
+        printf("Usage: ./substitution Key\n");
+        return 1;
+    }
+    else if(argc > 2 )
+    {
+        printf("Usage: ./substitution Key\n");
+        return 1;
+    }
+
+    else if(strlen(argv[1]) !=26)
+    {
+        printf("Usage: Key should be of 26 Character\n");
+        return 1;
+    }
+
     string pas = argv[1];
     int f = strlen(argv[1]);
-    int repeat2 = repeat(pas,f);
-    for(int k=0 ; k<f; k++)
+
+     for(int k=0 ; k<f; k++)
     {
         if(isalpha(argv[1][k])== 0)
         {
@@ -19,21 +36,12 @@ int main(int argc, string argv[])
         }
     }
 
-    if(argc == 1)
-    {
-        printf("Usage: ./substitution Key\n");
-        return 1;
-    }
-    else if( repeat2 >=2 )
-    {
-        printf("Usage: ./substitution Key\n");
-        return 1;
-    }
-  
 
-    else if(strlen(argv[1]) !=26)
+    int repeat2 = repeat(pas,f);
+
+    if( repeat2 >=2 )
     {
-        printf("Usage: Key should be of 26 Character\n");
+        printf("Usage: ./substitution Key\n");
         return 1;
     }
     else if ((argc == 2) && strlen(argv[1]) == 26 )
