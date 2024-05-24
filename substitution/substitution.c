@@ -25,7 +25,7 @@ int main(int argc, string argv[])
     }
     else if ((argc == 2) && strlen(argv[1]) == 26 )
     {
-        string s = get_string("Plaintext: ");
+        string s = "A";
         char a;
         int l=strlen(s);
         printf("ciphertext: ");
