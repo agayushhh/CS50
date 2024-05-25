@@ -81,7 +81,7 @@ bool vote(string name)
 void print_winner(void)
 {
     int max= candidates[0].votes;
-    int same[MAX] = 0;
+    int same[MAX];
     int j=0;
     int sameno=0;
     int max_index;
