@@ -82,6 +82,7 @@ void print_winner(void)
 {
     int max= candidates[0].votes;
     int same[candidate_count] = 0
+    int j=0
     int sameno=0;
     int max_index;
      for(int i=0;i<candidate_count;i++)
@@ -92,9 +93,25 @@ void print_winner(void)
             max = candidates[i].votes;
 
         }
-        else if(candidates[i].votes==max)
+
+     }
+
+     for(int i=0;i<candidate_count;i++)
+     {
+        if(candidates[i].votes == max)
         {
-            
+            sameno++;
+            same[j] = i;
+            j++;
+
+        }
+
+     }
+     if(sameno > 1)
+     {
+        for(int i=0;i<sameno;i++)
+        {
+            printf("%s\n",candidates[same[i]].name);
         }
      }
 printf("%s\n",candidates[max_index].name);
