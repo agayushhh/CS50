@@ -7,18 +7,18 @@ int repeat(string pass, int f);
 
 int main(int argc, string argv[])
 {
-     if(argc == 1)
+    if (argc == 1)
     {
         printf("Usage: ./substitution Key\n");
         return 1;
     }
-    else if(argc > 2 )
+    else if (argc > 2)
     {
         printf("Usage: ./substitution Key\n");
         return 1;
     }
 
-    else if(strlen(argv[1]) !=26)
+    else if (strlen(argv[1]) != 26)
     {
         printf("Usage: Key should be of 26 Character\n");
         return 1;
@@ -27,56 +27,54 @@ int main(int argc, string argv[])
     string pas = argv[1];
     int f = strlen(argv[1]);
 
-     for(int k=0 ; k<f; k++)
+    for (int k = 0; k < f; k++)
     {
-        if(isalpha(argv[1][k])== 0)
+        if (isalpha(argv[1][k]) == 0)
         {
-        printf("INVALID Key\n");
-        return 1;
+            printf("INVALID Key\n");
+            return 1;
         }
     }
 
+    int repeat2 = repeat(pas, f);
 
-    int repeat2 = repeat(pas,f);
-
-    if( repeat2 >=2 )
+    if (repeat2 >= 2)
     {
         printf("Usage: ./substitution Key\n");
         return 1;
     }
-    else if ((argc == 2) && strlen(argv[1]) == 26 )
+    else if ((argc == 2) && strlen(argv[1]) == 26)
     {
         string s = get_string("Plaintext: ");
         char a;
-        int l=strlen(s);
+        int l = strlen(s);
         printf("ciphertext: ");
-        for(int i=0; i < l; i++)
+        for (int i = 0; i < l; i++)
         {
-        if(isupper(s[i]))
-        {
-            a = toupper(argv[1][s[i]-'A']);
-            printf("%c",a);
+            if (isupper(s[i]))
+            {
+                a = toupper(argv[1][s[i] - 'A']);
+                printf("%c", a);
+            }
+            else if (islower(s[i]))
+            {
+                a = tolower(argv[1][s[i] - 'a']);
+                printf("%c", a);
+            }
+            else if (isblank(s[i]))
+            {
+                printf(" ");
+            }
+            else if (isalnum(s[i]))
+            {
+                printf("%c", s[i]);
+            }
+            else if (s[i] == '\'' || s[i] == '"' || s[i] == '!' || s[i] == ',' || s[i] == '.')
+            {
+                printf("%c", s[i]);
+            }
         }
-        else if(islower(s[i]))
-        {
-            a = tolower(argv[1][s[i]-'a']);
-             printf("%c",a);
-        }
-        else if(isblank(s[i]))
-        {
-            printf(" ");
-        }
-        else if(isalnum(s[i]))
-        {
-            printf("%c",s[i]);
-        }
-        else if(s[i] == '\'' || s[i] == '"'|| s[i] == '!' || s[i] == ',' || s[i] == '.' )
-        {
-            printf("%c",s[i]);
-        }
-
-        }
-     printf("\n");
+        printf("\n");
     }
     return 0;
 }
@@ -84,26 +82,23 @@ int main(int argc, string argv[])
 int repeat(string pass, int f)
 {
     int repeat1 = 0;
-     for(int i=0;i<f;i++)
+    for (int i = 0; i < f; i++)
     {
-        for(int j=0;j<f;j++)
+        for (int j = 0; j < f; j++)
         {
-        if(toupper(pass[i]) == toupper(pass[j]))
-        {
-           repeat1++;
+            if (toupper(pass[i]) == toupper(pass[j]))
+            {
+                repeat1++;
+            }
         }
-
-        }
-        if(repeat1>1)
+        if (repeat1 > 1)
         {
             return repeat1;
         }
         else
         {
-            repeat1=0;
+            repeat1 = 0;
         }
     }
     return repeat1;
 }
-
-
