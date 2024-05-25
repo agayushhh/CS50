@@ -1,13 +1,13 @@
-sort1 uses: TODO
-Bubble sort
-How do you know?: TODO
-It uses Bubble sort as it took relatively less time to provide the output for the sorted50000.txt then sort 3
+sort1 uses: Bubble sort
+
+How do you know?: It uses Bubble sort as it took relatively less time to provide the output for the sorted50000.txt then sort 3
 but for random50000.txt it took more time then sort2
-sort2 uses: TODO
-Merge sort
-How do you know?: TODO
-it took least time to sort random50000.txt
-sort3 uses: TODO
-Selection sort
-How do you know?: TODO
-it took more time to sort an already sorted array
+
+sort2 uses: Merge sort
+
+How do you know?: it took least time to sort random50000.txt
+
+sort3 uses: Selection sort
+
+How do you know?: it took more time to sort an already sorted array
+
