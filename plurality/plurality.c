@@ -81,7 +81,8 @@ bool vote(string name)
 void print_winner(void)
 {
     int max= candidates[0].votes;
-    int same[candidate_count]
+    int same[candidate_count] = 0
+    int sameno=0;
     int max_index;
      for(int i=0;i<candidate_count;i++)
      {
@@ -89,6 +90,11 @@ void print_winner(void)
         {
             max_index = i;
             max = candidates[i].votes;
+
+        }
+        else if(candidates[i].votes==max)
+        {
+            
         }
      }
 printf("%s\n",candidates[max_index].name);
