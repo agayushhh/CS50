@@ -56,9 +56,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
              }
            else if (i==0 && j== w-1)
            {
-                red=(image[i][j].rgbtRed+image[i-1][j].rgbtRed+image[i][j+1].rgbtRed+image[i+1][j+1].rgbtRed)/4;
-                Green=(image[i][j].rgbtGreen + image[i+1][j].rgbtGreen +image[i][j+1].rgbtGreen +image[i+1][j+1].rgbtGreen)/4;
-                Blue =(image[i][j].rgbtBlue+image[i+1][j].rgbtBlue+image[i][j+1].rgbtBlue+image[i+1][j+1].rgbtBlue)/4;
+                red=(image[i][j].rgbtRed+image[i][j-1].rgbtRed+image[i+1][j].rgbtRed+image[i+1][j-1].rgbtRed)/4;
+                Green=(image[i][j].rgbtGreen + image[i+1][j].rgbtGreen +image[i][j-1].rgbtGreen +image[i+1][j-1].rgbtGreen)/4;
+                Blue =(image[i][j].rgbtBlue+image[i+1][j].rgbtBlue+image[i][j-1].rgbtBlue+image[i+1][j-1].rgbtBlue)/4;
                 image[i][j].rgbtRed = red;
                 image[i][j].rgbtGreen = Green;
                 image[i][j].rgbtBlue = Blue;
