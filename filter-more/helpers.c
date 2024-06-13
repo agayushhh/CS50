@@ -113,9 +113,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
              }
         else
         {
-                red=(image[i][j].rgbtRed+image[i-1][j].rgbtRed+image[i+1][j].rgbtRed+image[i][j+1].rgbtRed + image[i-1][j+1].rgbtRed+image[i+1][j+1].rgbtRed)/6;
-                Green=(image[i][j].rgbtGreen + image[i-1][j].rgbtGreen +image[i+1][j].rgbtGreen +image[i][j+1].rgbtGreen +image[i-1][j+1].rgbtGreen +image[i+1][j+1].rgbtGreen)/6;
-                Blue =(image[i][j].rgbtBlue+image[i-1][j].rgbtBlue+image[i+1][j].rgbtBlue+image[i][j+1].rgbtBlue + image[i-1][j+1].rgbtBlue +image[i+1][j+1].rgbtBlue)/6;
+                red=(image[i][j].rgbtRed+image[i-1][j].rgbtRed+image[i+1][j].rgbtRed+image[i][j+1].rgbtRed + image[i-1][j+1].rgbtRed+image[i+1][j+1].rgbtRed + image[i][j-1].rgbtRed + image[i-1][j-1].rgbtRed+image[i+1][j-1].rgbtRed)/9;
+                Green=(image[i][j].rgbtGreen + image[i-1][j].rgbtGreen +image[i+1][j].rgbtGreen +image[i][j+1].rgbtGreen +image[i-1][j+1].rgbtGreen +image[i+1][j+1].rgbtGreen+ image[i][j-1].rgbtGreen + image[i-1][j-1].rgbtGreen+image[i+1][j-1].rgbtGreen)/9;
+                Blue =(image[i][j].rgbtBlue + image[i-1][j].rgbtBlue+image[i+1][j].rgbtBlue+image[i][j+1].rgbtBlue + image[i-1][j+1].rgbtBlue +image[i+1][j+1].rgbtBlue + image[i][j-1].rgbtBlue + image[i-1][j-1].rgbtBlue +image[i+1][j-1].rgbtBlue)/9;
                 image[i][j].rgbtRed = red;
                 image[i][j].rgbtGreen = Green;
                 image[i][j].rgbtBlue = Blue;
