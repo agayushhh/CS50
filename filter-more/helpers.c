@@ -111,6 +111,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtGreen = Green;
                 image[i][j].rgbtBlue = Blue;
              }
+        else
+        {
+            
+        }
 
 
 
