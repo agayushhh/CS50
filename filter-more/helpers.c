@@ -188,7 +188,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         else if (i==0 && j== w-1)
            {
                 gx =((image[i][j].rgbtRed*0)+ (image[i][j-1].rgbtRed * (-1)) + (image[i+1][j].rgbtRed*0)+ (image[i+1][j-1].rgbtRed*(-1)));
-                gy = ((image[i][j].rgbtRed*0)+ (image[i][j-1].rgbtRed * (-1)) + (image[i+1][j].rgbtRed*0)+ (image[i+1][j-1].rgbtRed*(-1)));
+                gy = ((image[i][j].rgbtRed*0)+ (image[i][j-1].rgbtRed * (0)) + (image[i+1][j].rgbtRed*2)+ (image[i+1][j-1].rgbtRed*(1)));
+                image[i][j].rgbtRed = sqrt(((gx*gx)+(gy*gy)));
+                gx =((image[i][j].rgbtRed*0)+ (image[i][j-1].rgbtRed * (-1)) + (image[i+1][j].rgbtRed*0)+ (image[i+1][j-1].rgbtRed*(-1)));
+                gy = ((image[i][j].rgbtRed*0)+ (image[i][j-1].rgbtRed * (0)) + (image[i+1][j].rgbtRed*2)+ (image[i+1][j-1].rgbtRed*(1)));
+                image[i][j].rgbtRed = sqrt(((gx*gx)+(gy*gy)));
+                gx =((image[i][j].rgbtRed*0)+ (image[i][j-1].rgbtRed * (-1)) + (image[i+1][j].rgbtRed*0)+ (image[i+1][j-1].rgbtRed*(-1)));
+                gy = ((image[i][j].rgbtRed*0)+ (image[i][j-1].rgbtRed * (0)) + (image[i+1][j].rgbtRed*2)+ (image[i+1][j-1].rgbtRed*(1)));
                 image[i][j].rgbtRed = sqrt(((gx*gx)+(gy*gy)));
            }
          else if(i!=h-1 && j==w-1)
