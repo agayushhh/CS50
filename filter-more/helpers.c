@@ -262,7 +262,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 gy=((image[i][j].rgbtGreen * 0)+(image[i-1][j].rgbtGreen*(-2))+(image[i+1][j].rgbtGreen*(2))+(image[i][j+1].rgbtGreen*0) + (image[i-1][j+1].rgbtGreen*(-1))+(image[i+1][j+1].rgbtGreen*1) + (image[i][j-1].rgbtGreen*(0)) + (image[i-1][j-1].rgbtGreen*(-1))+(image[i+1][j-1].rgbtGreen*(1)));
                 image[i][j].rgbtGreen = sqrt(((gx*gx)+(gy*gy)));
                 gx=((image[i][j].rgbtBlue * 0)+(image[i-1][j].rgbtBlue*0)+(image[i+1][j].rgbtBlue*0)+(image[i][j+1].rgbtBlue*2) + (image[i-1][j+1].rgbtBlue*1)+(image[i+1][j+1].rgbtBlue*1) + (image[i][j-1].rgbtBlue*(-2)) + (image[i-1][j-1].rgbtBlue*(-1))+(image[i+1][j-1].rgbtBlue*(-1)));
-                gy=((image[i][j].rgbtBlue * 0)+(image[i-1][j].rgbtBlue*(-2))+(image[i+1][j].rgbtBlue*(2))+(image[i][j+1].rgbtBlue*0) + (image[i-1][j+1].rgbtBlue*(-1))+(image[i+1][j+1].rgbtBlue*1) + (image[i][j-1].rgbtBlue(0)) + (image[i-1][j-1].rgbtBlue*(-1))+(image[i+1][j-1].rgbtBlue*(1)));
+                gy=((image[i][j].rgbtBlue * 0)+(image[i-1][j].rgbtBlue*(-2))+(image[i+1][j].rgbtBlue*(2))+(image[i][j+1].rgbtBlue*0) + (image[i-1][j+1].rgbtBlue*(-1))+(image[i+1][j+1].rgbtBlue*1) + (image[i][j-1].rgbtBlue*(0)) + (image[i-1][j-1].rgbtBlue*(-1))+(image[i+1][j-1].rgbtBlue*(1)));
                 image[i][j].rgbtBlue = sqrt(((gx*gx)+(gy*gy)));
         }
 
