@@ -199,7 +199,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
            }
          else if(i!=h-1 && j==w-1)
              {
-                gx=(image[i][j].rgbtRed+image[i+1][j].rgbtRed+image[i-1][j].rgbtRed+image[i+1][j-1].rgbtRed + image[i][j-1].rgbtRed+image[i-1][j-1].rgbtRed)/6;
+                gx=((image[i][j].rgbtRed * +image[i+1][j].rgbtRed+image[i-1][j].rgbtRed+image[i+1][j-1].rgbtRed + image[i][j-1].rgbtRed+image[i-1][j-1].rgbtRed);
 
              }
 
