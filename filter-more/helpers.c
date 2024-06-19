@@ -225,7 +225,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
            }
 
-         else if(i==h-1 && j!=0)
+         else if(i==h-1 && j!=0) //edit
              {
                 gx=((image[i][j].rgbtRed * 0)+(image[i-1][j].rgbtRed*0)+(image[i+1][j].rgbtRed*0)+(image[i][j+1].rgbtRed*2) + (image[i-1][j+1].rgbtRed*1)+(image[i+1][j+1].rgbtRed*1) + (image[i][j-1].rgbtRed*(-2)) + (image[i-1][j-1].rgbtRed*(-1))+(image[i+1][j-1].rgbtRed*(-1)));
                 gy=((image[i][j].rgbtRed * 0)+(image[i-1][j].rgbtRed*(-2))+(image[i+1][j].rgbtRed*(2))+(image[i][j+1].rgbtRed*0) + (image[i-1][j+1].rgbtRed*(-1))+(image[i+1][j+1].rgbtRed*1) + (image[i][j-1].rgbtRed*(0)) + (image[i-1][j-1].rgbtRed*(-1))+(image[i+1][j-1].rgbtRed*(1)));
