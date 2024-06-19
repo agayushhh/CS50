@@ -155,6 +155,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     int h= height;
     int w= width;
     int gx,gy;
+    int red,Green,Blue;
     for(int i=0;i<h;i++)
     {
         for(int j=0;j<w;j++)
