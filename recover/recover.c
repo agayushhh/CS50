@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
   int new = 0;
   FILE *img = NULL;
   char *fname;
-   int8_t buffer[512];
+   uint8_t buffer[512];
    while(fread(&buffer,1,512,input)==512)
    {
         if (buffer[0]==0xff && buffer[1]==0xd8 && buffer[2]==0xff && (buffer[3 ]& 0xff) == 0xe0 )
