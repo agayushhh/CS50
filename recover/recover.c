@@ -16,6 +16,10 @@ int main(int argc, char *argv[])
     printf("invalid file");
     return 1;
   }
-   int512_t Buffer;
-   fread(&buffer,sizeof(int512_t),1,input);
+   int512_t buffer;
+   while(fread(&buffer,sizeof(int512_t),1,input)!=0)
+   {
+        if (buffer[0]==0xff)
+   }
+
 }
