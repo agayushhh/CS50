@@ -152,154 +152,73 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 
 
-void edges(int height, int width, RGBTRIPLE image[height][width])
+
+
+   void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    int h = height;
-    int w = width;
-    int gx, gy;
-    int value;
+    // Sobel kernel for Gx and Gy
+    int Gx[3][3] = {
+        {-1, 0, 1},
+        {-2, 0, 2},
+        {-1, 0, 1}
+    };
+    int Gy[3][3] = {
+        {-1, -2, -1},
+        {0, 0, 0},
+        {1, 2, 1}
+    };
 
-    for (int i = 0; i < h; i++)
+    // Create a copy of the original image to avoid modifying it while processing
+    RGBTRIPLE copy[height][width];
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < w; j++)
+        for (int j = 0; j < width; j++)
         {
-            gx = gy = 0; // Initialize gx and gy for each pixel
-
-            // Top-left corner
-            if (i == 0 && j == 0)
-            {
-                gx = ((image[i][j+1].rgbtRed*2) + (image[i+1][j+1].rgbtRed*1));
-                gy = ((image[i+1][j].rgbtRed*2) + (image[i+1][j+1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtGreen*2) + (image[i+1][j+1].rgbtGreen*1));
-                gy = ((image[i+1][j].rgbtGreen*2) + (image[i+1][j+1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtBlue*2) + (image[i+1][j+1].rgbtBlue*1));
-                gy = ((image[i+1][j].rgbtBlue*2) + (image[i+1][j+1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // Top edge (excluding corners)
-            else if (i == 0 && j != 0 && j != w-1)
-            {
-                gx = ((image[i][j+1].rgbtRed*2) + (image[i+1][j+1].rgbtRed*1) - (image[i][j-1].rgbtRed*2) - (image[i+1][j-1].rgbtRed*1));
-                gy = ((image[i+1][j].rgbtRed*2) + (image[i+1][j+1].rgbtRed*1) + (image[i+1][j-1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtGreen*2) + (image[i+1][j+1].rgbtGreen*1) - (image[i][j-1].rgbtGreen*2) - (image[i+1][j-1].rgbtGreen*1));
-                gy = ((image[i+1][j].rgbtGreen*2) + (image[i+1][j+1].rgbtGreen*1) + (image[i+1][j-1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtBlue*2) + (image[i+1][j+1].rgbtBlue*1) - (image[i][j-1].rgbtBlue*2) - (image[i+1][j-1].rgbtBlue*1));
-                gy = ((image[i+1][j].rgbtBlue*2) + (image[i+1][j+1].rgbtBlue*1) + (image[i+1][j-1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // Top-right corner
-            else if (i == 0 && j == w-1)
-            {
-                gx = (-(image[i][j-1].rgbtRed*2) - (image[i+1][j-1].rgbtRed*1));
-                gy = ((image[i+1][j].rgbtRed*2) + (image[i+1][j-1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = (-(image[i][j-1].rgbtGreen*2) - (image[i+1][j-1].rgbtGreen*1));
-                gy = ((image[i+1][j].rgbtGreen*2) + (image[i+1][j-1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = (-(image[i][j-1].rgbtBlue*2) - (image[i+1][j-1].rgbtBlue*1));
-                gy = ((image[i+1][j].rgbtBlue*2) + (image[i+1][j-1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // Right edge (excluding corners)
-            else if (i != 0 && i != h-1 && j == w-1)
-            {
-                gx = (-(image[i][j-1].rgbtRed*2) - (image[i-1][j-1].rgbtRed*1) - (image[i+1][j-1].rgbtRed*1));
-                gy = ((image[i-1][j].rgbtRed*2) + (image[i+1][j].rgbtRed*2) + (image[i-1][j-1].rgbtRed*1) + (image[i+1][j-1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = (-(image[i][j-1].rgbtGreen*2) - (image[i-1][j-1].rgbtGreen*1) - (image[i+1][j-1].rgbtGreen*1));
-                gy = ((image[i-1][j].rgbtGreen*2) + (image[i+1][j].rgbtGreen*2) + (image[i-1][j-1].rgbtGreen*1) + (image[i+1][j-1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = (-(image[i][j-1].rgbtBlue*2) - (image[i-1][j-1].rgbtBlue*1) - (image[i+1][j-1].rgbtBlue*1));
-                gy = ((image[i-1][j].rgbtBlue*2) + (image[i+1][j].rgbtBlue*2) + (image[i-1][j-1].rgbtBlue*1) + (image[i+1][j-1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // Bottom-right corner
-            else if (i == h-1 && j == w-1)
-            {
-                gx = (-(image[i][j-1].rgbtRed*2) - (image[i-1][j-1].rgbtRed*1));
-                gy = (-(image[i-1][j].rgbtRed*2) - (image[i-1][j-1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = (-(image[i][j-1].rgbtGreen*2) - (image[i-1][j-1].rgbtGreen*1));
-                gy = (-(image[i-1][j].rgbtGreen*2) - (image[i-1][j-1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = (-(image[i][j-1].rgbtBlue*2) - (image[i-1][j-1].rgbtBlue*1));
-                gy = (-(image[i-1][j].rgbtBlue*2) - (image[i-1][j-1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // Bottom edge (excluding corners)
-            else if (i == h-1 && j != 0 && j != w-1)
-            {
-                gx = ((image[i][j+1].rgbtRed*2) + (image[i-1][j+1].rgbtRed*1) - (image[i][j-1].rgbtRed*2) - (image[i-1][j-1].rgbtRed*1));
-                gy = (-(image[i-1][j].rgbtRed*2) - (image[i-1][j+1].rgbtRed*1) - (image[i-1][j-1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtGreen*2) + (image[i-1][j+1].rgbtGreen*1) - (image[i][j-1].rgbtGreen*2) - (image[i-1][j-1].rgbtGreen*1));
-                gy = (-(image[i-1][j].rgbtGreen*2) - (image[i-1][j+1].rgbtGreen*1) - (image[i-1][j-1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtBlue*2) + (image[i-1][j+1].rgbtBlue*1) - (image[i][j-1].rgbtBlue*2) - (image[i-1][j-1].rgbtBlue*1));
-                gy = (-(image[i-1][j].rgbtBlue*2) - (image[i-1][j+1].rgbtBlue*1) - (image[i-1][j-1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // Bottom-left corner
-            else if (i == h-1 && j == 0)
-            {
-                gx = ((image[i][j+1].rgbtRed*2) + (image[i-1][j+1].rgbtRed*1));
-                gy = (-(image[i-1][j].rgbtRed*2) - (image[i-1][j+1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtGreen*2) + (image[i-1][j+1].rgbtGreen*1));
-                gy = (-(image[i-1][j].rgbtGreen*2) - (image[i-1][j+1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtBlue*2) + (image[i-1][j+1].rgbtBlue*1));
-                gy = (-(image[i-1][j].rgbtBlue*2) - (image[i-1][j+1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // Left edge (excluding corners)
-            else if (i != 0 && i != h-1 && j == 0)
-            {
-                gx = ((image[i][j+1].rgbtRed*2) + (image[i-1][j+1].rgbtRed*1) + (image[i+1][j+1].rgbtRed*1));
-                gy = ((image[i-1][j].rgbtRed*2) + (image[i+1][j].rgbtRed*2) + (image[i-1][j+1].rgbtRed*1) + (image[i+1][j+1].rgbtRed*1));
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtGreen*2) + (image[i-1][j+1].rgbtGreen*1) + (image[i+1][j+1].rgbtGreen*1));
-                gy = ((image[i-1][j].rgbtGreen*2) + (image[i+1][j].rgbtGreen*2) + (image[i-1][j+1].rgbtGreen*1) + (image[i+1][j+1].rgbtGreen*1));
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtBlue*2) + (image[i-1][j+1].rgbtBlue*1) + (image[i+1][j+1].rgbtBlue*1));
-                gy = ((image[i-1][j].rgbtBlue*2) + (image[i+1][j].rgbtBlue*2) + (image[i-1][j+1].rgbtBlue*1) + (image[i+1][j+1].rgbtBlue*1));
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
-            // All other pixels
-            else
-            {
-                gx = ((image[i][j+1].rgbtRed*2) + (image[i-1][j+1].rgbtRed*1) + (image[i+1][j+1].rgbtRed*1) - (image[i][j-1].rgbtRed*2) - (image[i-1][j-1].rgbtRed*1) - (image[i+1][j-1].rgbtRed*1));
-                gy = (-(image[i-1][j].rgbtRed*2) - (image[i-1][j+1].rgbtRed*1) - (image[i-1][j-1].rgbtRed*1) + (image[i+1][j].rgbtRed*2) + (image[i+1][j+1].rgbtRed*1) + (image[i+1][j-1].rgbtRed*1));
-                if (sqrt((gx*gx) + (gy*gy)) > 255)
-                {
-                    image[i][j].rgbtRed = 255;
-
-                }
-                image[i][j].rgbtRed = sqrt((gx*gx) + (gy*gy));
-
-
-                gx = ((image[i][j+1].rgbtGreen*2) + (image[i-1][j+1].rgbtGreen*1) + (image[i+1][j+1].rgbtGreen*1) - (image[i][j-1].rgbtGreen*2) - (image[i-1][j-1].rgbtGreen*1) - (image[i+1][j-1].rgbtGreen*1));
-                gy = (-(image[i-1][j].rgbtGreen*2) - (image[i-1][j+1].rgbtGreen*1) - (image[i-1][j-1].rgbtGreen*1) + (image[i+1][j].rgbtGreen*2) + (image[i+1][j+1].rgbtGreen*1) + (image[i+1][j-1].rgbtGreen*1));
-                if (sqrt((gx*gx) + (gy*gy)) > 255)
-                {
-                   image[i][j].rgbtGreen = 255;
-                }
-                image[i][j].rgbtGreen = sqrt((gx*gx) + (gy*gy));
-                gx = ((image[i][j+1].rgbtBlue*2) + (image[i-1][j+1].rgbtBlue*1) + (image[i+1][j+1].rgbtBlue*1) - (image[i][j-1].rgbtBlue*2) - (image[i-1][j-1].rgbtBlue*1) - (image[i+1][j-1].rgbtBlue*1));
-                gy = (-(image[i-1][j].rgbtBlue*2) - (image[i-1][j+1].rgbtBlue*1) - (image[i-1][j-1].rgbtBlue*1) + (image[i+1][j].rgbtBlue*2) + (image[i+1][j+1].rgbtBlue*1) + (image[i+1][j-1].rgbtBlue*1));
-                if (sqrt((gx*gx) + (gy*gy)) > 255)
-                {
-                    image[i][j].rgbtBlue = 255;
-                }
-                image[i][j].rgbtBlue = sqrt((gx*gx) + (gy*gy));
-            }
+            copy[i][j] = image[i][j];
         }
     }
-      return;
+
+    // Apply Sobel operator
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int sumXRed = 0, sumYRed = 0;
+            int sumXGreen = 0, sumYGreen = 0;
+            int sumXBlue = 0, sumYBlue = 0;
+
+            // Apply the kernels to the current pixel's neighborhood
+            for (int di = -1; di <= 1; di++)
+            {
+                for (int dj = -1; dj <= 1; dj++)
+                {
+                    int ni = i + di;
+                    int nj = j + dj;
+
+                    // Ensure the neighbor indices are within bounds
+                    if (ni >= 0 && ni < height && nj >= 0 && nj < width)
+                    {
+                        sumXRed += copy[ni][nj].rgbtRed * Gx[di + 1][dj + 1];
+                        sumYRed += copy[ni][nj].rgbtRed * Gy[di + 1][dj + 1];
+                        sumXGreen += copy[ni][nj].rgbtGreen * Gx[di + 1][dj + 1];
+                        sumYGreen += copy[ni][nj].rgbtGreen * Gy[di + 1][dj + 1];
+                        sumXBlue += copy[ni][nj].rgbtBlue * Gx[di + 1][dj + 1];
+                        sumYBlue += copy[ni][nj].rgbtBlue * Gy[di + 1][dj + 1];
+                    }
+                }
+            }
+
+            // Compute the gradient magnitude for each color channel
+            int newRed = round(sqrt(sumXRed * sumXRed + sumYRed * sumYRed));
+            int newGreen = round(sqrt(sumXGreen * sumXGreen + sumYGreen * sumYGreen));
+            int newBlue = round(sqrt(sumXBlue * sumXBlue + sumYBlue * sumYBlue));
+
+            // Clamp values to [0, 255]
+            image[i][j].rgbtRed = (newRed > 255) ? 255 : newRed;
+            image[i][j].rgbtGreen = (newGreen > 255) ? 255 : newGreen;
+            image[i][j].rgbtBlue = (newBlue > 255) ? 255 : newBlue;
+        }
+    }
 }
 
 
