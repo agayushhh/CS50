@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     return 1;
   }
   int count=0;
+  int new = 0;
    int8_t buffer[512];
    while(fread(&buffer,1,512,input)==512)
    {
@@ -25,7 +26,9 @@ int main(int argc, char *argv[])
             count++;
             sprintf(img,"%03i.jpg",count)
             FILE *img = fopen(img,"w")
-            
+            fwrite(&buffer,1,512,img)
+            new = 1;
+
         }
    }
 
