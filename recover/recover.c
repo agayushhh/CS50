@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
     printf("invalid file");
     return 1;
   }
-   int512_t buffer;
-   while(fread(&buffer,sizeof(int512_t),1,input)!=0)
+   int8_t buffer[512];
+   while(fread(&buffer,sizeof(int8_t),1,input)!=0)
    {
         if (buffer[0]==0xff && buffer[1]==0xd8 && buffer[0]==0xff && (buffer[0]& 0xff) == 0xe0 )
         {
