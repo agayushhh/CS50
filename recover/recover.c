@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
   int count=0;
   int new = 0;
   FILE *img = NULL;
+  char *fname;
    int8_t buffer[512];
    while(fread(&buffer,1,512,input)==512)
    {
@@ -38,7 +39,7 @@ int main(int argc, char *argv[])
             {
                 count++;
                 sprintf(fname,"%03i.jpg",count);
-                FILE *img = fopen(fname,"w");
+                img = fopen(fname,"w");
                 fwrite(&buffer,1,512,img);
                 new = 1;
             }
