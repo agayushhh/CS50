@@ -47,8 +47,8 @@ person *create_family(int generations)
         person *parent0 = create_family(generations - 1);
         person *parent1 = create_family(generations - 1);
 
-        new_person->parents[0] = NULL;
-        new_person->parents[1] = NULL;
+        new_person->parents[0] = parent0;
+        new_person->parents[1] = parent1;
 
         new_person->alleles[0] = parent0->alleles[rand()%2];
         new_person->alleles[1] = parent1->alleles[rand()%2];
@@ -67,17 +67,24 @@ person *create_family(int generations)
     }
 
     // TODO: Return newly created person
-    return NULL;
+    return new_person;
 }
 
 // Free `p` and all ancestors of `p`.
 void free_family(person *p)
 {
     // TODO: Handle base case
+    if (p == NULL)
+    {
+        return;
+    }
 
     // TODO: Free parents recursively
+    free_family(p->parents[0]);
+    free_family(p->parents[1]);
 
     // TODO: Free child
+    free(p);
 }
 
 // Print each family member and their alleles.
