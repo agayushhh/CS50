@@ -57,10 +57,14 @@ int main(int argc, char *argv[])
 
 
         }
-   }
+   
 
-   fclose(img);
-   fclose(input);
-   return 0;
+   if (img != NULL)
+    {
+        fclose(img);
+    }
+    fclose(input);
+
+    return 0;
 
 }
