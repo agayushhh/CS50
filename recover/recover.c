@@ -16,5 +16,6 @@ int main(int argc, char *argv[])
     printf("invalid file");
     return 1;
   }
-  
+   int512_t Buffer;
+   fread(&buffer,sizeof(int512_t),)
 }
