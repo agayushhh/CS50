@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
                 fwrite(&buffer,1,512,img)
                 new = 1;
             }
-        else if(new==1)
+        else if(new!=1 && count>=1)
         {
             
         }
