@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
         if (buffer[0]==0xff && buffer[1]==0xd8 && buffer[0]==0xff && (buffer[0]& 0xff) == 0xe0 )
         {
             count++;
-            sprintf(img,"%03i.jpg",count)
-            FILE *img = fopen(img,"w")
+            sprintf(fname,"%03i.jpg",count)
+            FILE *img = fopen(fname,"w")
             fwrite(&buffer,1,512,img)
             new = 1;
 
