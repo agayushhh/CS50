@@ -4,67 +4,65 @@
 
 int main(int argc, char *argv[])
 {
-  if(argc != 2)
-  {
-    printf("./recover recover_file : should be the cmd line prompt\n");
-    return 1;
+    if (argc != 2)
+    {
+        printf("Usage: ./recover recover_file\n");
+        return 1;
+    }
 
-  }
+    FILE *input = fopen(argv[1], "r");
+    if (input == NULL)
+    {
+        printf("Invalid file\n");
+        return 1;
+    }
 
-  FILE *input = fopen(argv[1],"r");
-  if (input == NULL)
-  {
-    printf("invalid file");
-    return 1;
-  }
-  int count=0;
-  int new = 0;
-  FILE *img = NULL;
-  char *fname = NULL;
-   uint8_t buffer[512];
-   while(fread(&buffer,1,512,input)==512)
-   {
-        if (buffer[0]==0xff && buffer[1]==0xd8 && buffer[2]==0xff && (buffer[3 ]& 0xff) == 0xe0 )
+    int count = 0;
+    int new = 0;
+    FILE *img = NULL;
+    char fname[8];  // Allocate space for the filename
+    uint8_t buffer[512];
+
+    while (fread(&buffer, 1, 512, input) == 512)
+    {
+        // Check if the block is the beginning of a new JPEG
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if(count>1)
+            // If already processing a JPEG, close it
+            if (count >= 1)
             {
                 fclose(img);
-                count++;
-                sprintf(fname,"%03i.jpg",count);
-                img = fopen(fname,"w");
-                fwrite(&buffer,1,512,img);
-                new = 1;
             }
-            else
+
+            // Create a new JPEG file
+            sprintf(fname, "%03i.jpg", count);
+            img = fopen(fname, "w");
+            if (img == NULL)
             {
-                count++;
-                sprintf(fname,"%03i.jpg",count);
-                img = fopen(fname,"w");
-                fwrite(&buffer,1,512,img);
-                new = 1;
+                printf("Could not create %s.\n", fname);
+                fclose(input);
+                return 1;
             }
-        }
 
-        else if(new == 0 && count>=1)
+            fwrite(&buffer, 1, 512, img);
+            count++;
+            new = 1;
+        }
+        else if (new == 0 && count >= 1)
         {
-           fwrite(&buffer,1,512,img);
-
+            // Continue writing to the current JPEG
+            fwrite(&buffer, 1, 512, img);
         }
 
-        new=0;
+        new = 0;
+    }
 
-
-
-
-        }
-   
-
-   if (img != NULL)
+    // Close any remaining files
+    if (img != NULL)
     {
         fclose(img);
     }
     fclose(input);
 
     return 0;
-
 }
