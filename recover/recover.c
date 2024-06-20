@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
   int count=0;
   int new = 0;
   FILE *img = NULL;
-  char *fname;
+  char *fname = NULL;
    uint8_t buffer[512];
    while(fread(&buffer,1,512,input)==512)
    {
