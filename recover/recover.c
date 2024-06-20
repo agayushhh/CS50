@@ -17,5 +17,5 @@ int main(int argc, char *argv[])
     return 1;
   }
    int512_t Buffer;
-   fread(&buffer,sizeof(int512_t),)
+   fread(&buffer,sizeof(int512_t),1,input);
 }
