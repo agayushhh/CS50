@@ -10,5 +10,11 @@ int main(int argc, char *argv[])
 
   }
 
+  FILE *input = fopen(argv[1],"r");
+  if (input == NULL)
+  {
+    printf("invalid file");
+    return 1;
+  }
   
 }
