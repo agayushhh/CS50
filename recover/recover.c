@@ -23,7 +23,9 @@ int main(int argc, char *argv[])
         if (buffer[0]==0xff && buffer[1]==0xd8 && buffer[0]==0xff && (buffer[0]& 0xff) == 0xe0 )
         {
             count++;
-            sprintf(img,%i30,count)
+            sprintf(img,"%03i.jpg",count)
+            FILE *img = fopen(img,"w")
+            
         }
    }
 
