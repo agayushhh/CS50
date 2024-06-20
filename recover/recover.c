@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     return 1;
   }
    int8_t buffer[512];
-   while(fread(&buffer,sizeof(int8_t),1,input)!=0)
+   while(fread(&buffer,1,512,input)==512)
    {
         if (buffer[0]==0xff && buffer[1]==0xd8 && buffer[0]==0xff && (buffer[0]& 0xff) == 0xe0 )
         {
