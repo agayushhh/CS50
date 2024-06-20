@@ -19,7 +19,10 @@ int main(int argc, char *argv[])
    int512_t buffer;
    while(fread(&buffer,sizeof(int512_t),1,input)!=0)
    {
-        if (buffer[0]==0xff)
+        if (buffer[0]==0xff && buffer[1]==0xd8 && buffer[0]==0xff && (buffer[0]& 0xff) == 0xe0 )
+        {
+            
+        }
    }
 
 }
