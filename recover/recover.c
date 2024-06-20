@@ -20,21 +20,21 @@ int main(int argc, char *argv[])
     int count = 0;
     int new = 0;
     FILE *img = NULL;
-    char fname[8];  // Allocate space for the filename
+    char fname[8];
     uint8_t buffer[512];
 
     while (fread(&buffer, 1, 512, input) == 512)
     {
-        // Check if the block is the beginning of a new JPEG
+
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            // If already processing a JPEG, close it
+
             if (count >= 1)
             {
                 fclose(img);
             }
 
-            // Create a new JPEG file
+
             sprintf(fname, "%03i.jpg", count);
             img = fopen(fname, "w");
             if (img == NULL)
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
         }
         else if (new == 0 && count >= 1)
         {
-            // Continue writing to the current JPEG
+            
             fwrite(&buffer, 1, 512, img);
         }
 
