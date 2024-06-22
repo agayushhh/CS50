@@ -54,11 +54,10 @@ bool load(const char *dictionary)
        node *new_node = malloc(sizeof(node));
        strcpy(new_node->word,dword);
        index = hash(new_node->word);
-       
-
-
-
-    }
+       new_node->next = table[index];
+       table[index] = new_node;
+     }
+    
     return false;
 }
 
