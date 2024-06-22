@@ -16,23 +16,35 @@ typedef struct node
     struct node *next;
 } node;
 
-// TODO: Choose number of buckets in hash table
+// Number of buckets in hash table
 const unsigned int N = 1950;
 int count = 0;
 
 // Hash table
 node *table[N];
 
+// Hashes word to a number using djb2 algorithm
+unsigned int hash(const char *word)
+{
+    unsigned long hash = 5381;
+    int c;
+
+    while ((c = *word++))
+    {
+        c = toupper(c); // Ensure the character is uppercase
+        hash = ((hash << 5) + hash) + c; // hash * 33 + c
+    }
+
+    return hash % N;
+}
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
-    int index;
-    index = hash(word);
-    for(node *ptr = table[index]; ptr!=NULL;ptr = ptr->next)
+    int index = hash(word);
+    for (node *ptr = table[index]; ptr != NULL; ptr = ptr->next)
     {
-        if(strcasecmp(ptr->word, word) == 0)
+        if (strcasecmp(ptr->word, word) == 0)
         {
             return true;
         }
@@ -41,53 +53,39 @@ bool check(const char *word)
     return false;
 }
 
-// Hashes word to a number
-unsigned int hash(const char *word)
-{
-    // TODO: Improve this hash function
-    int i=0;
-    int sum = 0;
-    while(word[i] != '\0')
-    {
-        sum = sum + toupper(word[i]);
-        i++;
-
-    }
-    return sum - 'A';
-
-}
-
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO
     FILE *src = fopen(dictionary, "r");
-    if(src == NULL)
+    if (src == NULL)
     {
-        printf("Could not open dictionary");
+        printf("Could not open dictionary\n");
         return false;
     }
-    for( int i = 0; i < N; i++)
+
+    // Initialize hash table to NULL
+    for (int i = 0; i < N; i++)
     {
         table[i] = NULL;
     }
+
     char dword[LENGTH + 1];
-    int index;
-    while(fscanf(src,"%s",dword)!= EOF)
+    while (fscanf(src, "%s", dword) != EOF)
     {
-       fscanf(src,"%s",dword);
-       node *new_node = malloc(sizeof(node));
-       if(new_node == NULL)
-       {
-        fclose(src);
-        return false;
-       }
-       strcpy(new_node->word,dword);
-       index = hash(new_node->word);
-       new_node->next = table[index];
-       table[index] = new_node;
-       count++;
-     }
+        node *new_node = malloc(sizeof(node));
+        if (new_node == NULL)
+        {
+            fclose(src);
+            return false;
+        }
+
+        strcpy(new_node->word, dword);
+        int index = hash(new_node->word);
+        new_node->next = table[index];
+        table[index] = new_node;
+        count++;
+    }
+
     fclose(src);
     return true;
 }
@@ -95,25 +93,20 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
     return count;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
-    node *ptr;
-    node *tmp;
-    for(int i=0;i<N;i++)
+    for (int i = 0; i < N; i++)
     {
-        ptr = table[i];
-        while(ptr!= NULL)
+        node *ptr = table[i];
+        while (ptr != NULL)
         {
-            tmp = ptr;
+            node *tmp = ptr;
             ptr = ptr->next;
             free(tmp);
-
         }
     }
     return true;
