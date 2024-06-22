@@ -23,7 +23,7 @@ int count = 0;
 // Hash table
 node *table[N];
 
-for (int i = 0; i < N; i++)
+for(int i = 0; i < N; i++)
 {
     table[i] = NULL;
 }
