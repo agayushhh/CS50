@@ -38,7 +38,11 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *src = fopen(dictionary,'r');
-    while(fscanf(dictionary,))
+    while(fscanf(dictionary,"%s",word)!= EOF)
+    {
+       fscanf(dictionary,"%s",word)
+       
+    }
     return false;
 }
 
