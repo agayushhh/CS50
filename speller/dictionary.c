@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "dictionary.h"
 
@@ -45,11 +47,16 @@ bool load(const char *dictionary)
         return 1;
     }
     char dword[LENGTH + 1];
+    int index;
     while(fscanf(dictionary,"%s",dword)!= EOF)
     {
        fscanf(dictionary,"%s",dword);
-       node *new_node;
+       node *new_node = malloc(sizeof(node));
        strcpy(new_node->word,dword);
+       index = hash(new_node->word);
+       
+
+
 
     }
     return false;
