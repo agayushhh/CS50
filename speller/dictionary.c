@@ -26,7 +26,9 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    return false;
+    int index;
+    index = hash(word);
+    for(node *ptr; ptr!=NULL;ptr = ptr->next)
 }
 
 // Hashes word to a number
