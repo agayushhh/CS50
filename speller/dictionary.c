@@ -28,7 +28,10 @@ bool check(const char *word)
     // TODO
     int index;
     index = hash(word);
-    for(node *ptr; ptr!=NULL;ptr = ptr->next)
+    for(node *ptr = table[index]; ptr!=NULL;ptr = ptr->next)
+    {
+        if(strcmp)
+    }
 }
 
 // Hashes word to a number
