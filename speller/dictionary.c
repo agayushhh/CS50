@@ -41,7 +41,8 @@ bool load(const char *dictionary)
     while(fscanf(dictionary,"%s",word)!= EOF)
     {
        fscanf(dictionary,"%s",word)
-       
+       node *new_node;
+       strcpy
     }
     return false;
 }
