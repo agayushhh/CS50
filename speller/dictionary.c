@@ -38,7 +38,7 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *src = fopen(dictionary,'r');
-    
+    while(fscanf(dictionary,))
     return false;
 }
 
