@@ -40,7 +40,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    FILE *src = fopen(dictionary,"r");
+    FILE *src = fopen(dictionary, "r");
     if(src == NULL)
     {
         printf("Could not open dictionary");
@@ -48,9 +48,9 @@ bool load(const char *dictionary)
     }
     char dword[LENGTH + 1];
     int index;
-    while(fscanf(dictionary,"%s",dword)!= EOF)
+    while(fscanf(src,"%s",dword)!= EOF)
     {
-       fscanf(dictionary,"%s",dword);
+       fscanf(src,"%s",dword);
        node *new_node = malloc(sizeof(node));
        if(new_node == NULL)
        {
