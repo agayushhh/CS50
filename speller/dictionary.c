@@ -23,10 +23,7 @@ int count = 0;
 // Hash table
 node *table[N];
 
-for( int i = 0; i < N; i++)
-{
-    table[i] = NULL;
-}
+
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
@@ -69,6 +66,10 @@ bool load(const char *dictionary)
     {
         printf("Could not open dictionary");
         return false;
+    }
+    for( int i = 0; i < N; i++)
+    {
+        table[i] = NULL;
     }
     char dword[LENGTH + 1];
     int index;
