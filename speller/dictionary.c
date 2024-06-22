@@ -101,14 +101,14 @@ bool unload(void)
     node *tmp;
     for(int i=0;i<N;i++)
     {
-        ptr = table[i]
+        ptr = table[i];
         while(ptr!= NULL)
         {
             tmp = ptr;
             ptr = ptr->next;
             free(tmp);
-            
+
         }
     }
-    return false;
+    return true;
 }
