@@ -34,12 +34,13 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
     int i=0;
     int sum = 0;
-    while(word[i] != '\0)
+    while(word[i] != '\0')
     {
         sum = sum + toupper(word[i]);
 
     }
-     return sum - 'A'
+     return sum - 'A';
+     i++;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
