@@ -44,7 +44,7 @@ bool load(const char *dictionary)
     if(src == NULL)
     {
         printf("Could not open dictionary");
-        return 1;
+        return false;
     }
     char dword[LENGTH + 1];
     int index;
@@ -52,13 +52,17 @@ bool load(const char *dictionary)
     {
        fscanf(dictionary,"%s",dword);
        node *new_node = malloc(sizeof(node));
+       if(new_node == NULL)
+       {
+        return false;
+       }
        strcpy(new_node->word,dword);
        index = hash(new_node->word);
        new_node->next = table[index];
        table[index] = new_node;
      }
-    
-    return false;
+    fclose(src);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
