@@ -42,7 +42,7 @@ bool load(const char *dictionary)
     {
        fscanf(dictionary,"%s",word)
        node *new_node;
-       strcpy
+       strcpy(new_node->word,word);
     }
     return false;
 }
