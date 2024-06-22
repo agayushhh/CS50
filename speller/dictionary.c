@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include <strings.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -30,8 +31,13 @@ bool check(const char *word)
     index = hash(word);
     for(node *ptr = table[index]; ptr!=NULL;ptr = ptr->next)
     {
-        if(strcmp)
+        if(strcasecmp(ptr->word, word) == 0)
+        {
+            return true;
+        }
     }
+
+    return false;
 }
 
 // Hashes word to a number
