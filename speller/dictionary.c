@@ -39,11 +39,18 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *src = fopen(dictionary,'r');
-    while(fscanf(dictionary,"%s",word)!= EOF)
+    if(src == NULL)
     {
-       fscanf(dictionary,"%s",word)
+        printf("Could not open dictionary");
+        return 1;
+    }
+    char dword[LENGTH + 1];
+    while(fscanf(dictionary,"%s",dword)!= EOF)
+    {
+       fscanf(dictionary,"%s",dword);
        node *new_node;
-       strcpy(new_node->word,word);
+       strcpy(new_node->word,dword);
+
     }
     return false;
 }
