@@ -37,10 +37,11 @@ unsigned int hash(const char *word)
     while(word[i] != '\0')
     {
         sum = sum + toupper(word[i]);
+        i++;
 
     }
-     return sum - 'A';
-     i++;
+    return sum - 'A';
+
 }
 
 // Loads dictionary into memory, returning true if successful, else false
