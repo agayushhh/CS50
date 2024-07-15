@@ -1,4 +1,4 @@
-// Implements a dictionary's functionality
+p// Implements a dictionary's functionality
 
 #include <ctype.h>
 #include <stdbool.h>
